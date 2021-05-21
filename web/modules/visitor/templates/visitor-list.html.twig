@@ -1,0 +1,39 @@
+<div class="row align-right">
+  <a href="{{ path('visitorAdd') }}"  class="btn btn-primary">
+    Agregar
+    <span class="glyphicon glyphicon-plus"></span>
+  </a>
+  <a href="{{ path('visitorMail') }}"  class="btn btn-primary">
+    Enviar emails
+    <span class="glyphicon glyphicon-envelope"></span>
+  </a>
+
+</div>
+<div class="row clearfix">&nbsp;</div>
+<hr/>
+
+<table class="table table-bordered table-striped">
+  <thead style="background-color: #2c3c54; color: whitesmoke">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Email</th>
+    <th scope="col">Email</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for row in visitor_list %}
+      <tr>
+        <td><b>{{ row.id }}</b></td>
+        <td>{{ row.nombres }} {{ row.apellidos }}</td>
+        <td>{{ row.email }}</td>
+        <td><a href="{{ path('visitorMailUser', {'id':row.id}) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-envelope"></span></a></td>
+        <td><a href="{{ path('visitorUpdate', {'id':row.id}) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a href="{{ path('visitorDelete', {'id':row.id}) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+

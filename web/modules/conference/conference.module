@@ -1,0 +1,24 @@
+<?php
+  function conference_theme($existing, $type, $theme,$path){
+    $path_templates = drupal_get_path('module','conference')."/templates";
+    return[
+        'conference-list' => [
+            'variables' => [
+                'conference_list' => null,
+                'conference_add' => null,
+                'conference_update' => null,
+                'conference_delete' => null
+            ],
+            'path' => $path_templates
+        ],
+        'program-list' => [
+            'variables' => [
+                'program_list' => null,
+                'program_days' => null
+            ],
+            'path' => $path_templates
+        ]
+    ];
+  }
+
+

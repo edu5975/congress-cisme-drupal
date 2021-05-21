@@ -1,0 +1,80 @@
+{% if conference_add %}
+  <div class="row align-right">
+    <a href="{{ path('conferenceAdd') }}"  class="btn btn-primary">
+      Agregar
+      <span class="glyphicon glyphicon-plus"></span>
+    </a>
+  </div>
+  <div class="row clearfix">&nbsp;</div>
+  <hr/>
+
+  <table class="table table-bordered table-striped">
+    <thead style="background-color: #2c3c54; color: whitesmoke">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Impartidor</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in conference_list %}
+      <tr>
+        <td><b>{{ row.id }}</b></td>
+        <td>{{ row.titulo }}</td>
+        <td>{{ row.nombreConferencista }}</td>
+        <td><a href="{{ path('conferenceUpdate', {'id':row.id}) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a href="{{ path('conferenceDelete', {'id':row.id}) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <div class="panel-group" id="accordion">
+
+    {% for row in conference_list %}
+      <hr style="width:100%;text-align:left;
+          margin-left:0;
+          border-color:#c4c4c4;
+          border-width: 1px">
+      <div class="panel panel-default" style="background-color: transparent; border: 1px solid #ffffff">
+        <div class="panel-heading" style="background-color: white">
+          <h4 class="panel-title" >
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{loop.index}}">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3>{{row.titulo}}</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-11">
+                  <i>Por: {{ row.nombreConferencista }}</i>
+                </div>
+                <div class="col-md-1">
+                  <span class="glyphicon glyphicon-resize-full"></span>
+                </div>
+              </div>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse{{loop.index}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            <b><p>Titulo: {{row.titulo}}</p></b><br/>
+            <p>Resumen: {{row.resumen}}</p>
+            <p>Fecha: {{row.fecha}}</p>
+            <p>Lugar: {{row.lugar}}</p>
+            <p>Hora: {{row.hora}}</p>
+            <p>Conferencista: {{row.nombreConferencista}}</p>
+            <p>CV del conferencista: {{row.cvConferencista}}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
+
+
+

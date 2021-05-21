@@ -1,0 +1,17 @@
+conference_list:
+  title: Conferencias/Talleres
+  description : 'Conference List'
+  parent: main
+  route_name: conferenceList
+  menu_name: main
+  enabled: 1
+  weight: -48
+
+program:
+  title: Programa
+  description : 'Program List'
+  parent: main
+  route_name: program
+  menu_name: main
+  enabled: 1
+  weight: -49

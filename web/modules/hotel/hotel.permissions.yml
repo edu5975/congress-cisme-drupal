@@ -1,0 +1,19 @@
+hotel read:
+  title: 'Read'
+  description: 'Reading FAQs'
+  restrict acccess: false
+
+hotel add:
+  title: 'Add'
+  description: 'Adding Hotels'
+  restrict acccess: true
+
+hotel update:
+  title: 'Update'
+  description: 'Updating Hotels'
+  restrict acccess: true
+
+hotel delete:
+  title: 'Delete'
+  description: 'Deleting  Hotels'
+  restrict acccess: true

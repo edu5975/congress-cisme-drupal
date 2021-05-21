@@ -1,0 +1,39 @@
+conferenceList:
+  path: /conference/list
+  defaults:
+    _controller: Drupal\conference\Controller\ConferenceController::listConference
+  requirements:
+    _permission: 'access content'
+
+program:
+  path: /program
+  defaults:
+    _controller: Drupal\conference\Controller\ConferenceController::listProgram
+  requirements:
+    _permission: 'access content'
+
+conferenceAdd:
+  path: /conference/add
+  defaults:
+    _form: '\Drupal\conference\Form\ConferenceAddForm'
+    _title: 'Add Conference'
+  requirements:
+    _permission: 'conference add'
+
+conferenceUpdate:
+  path: /conference/update/{id}
+  defaults:
+    _form: '\Drupal\conference\Form\ConferenceUpdateForm'
+    _title: 'Edit Conference'
+  requirements:
+    _permission: 'conference update'
+
+conferenceDelete:
+  path: /conference/delete/{id}
+  defaults:
+    _form: '\Drupal\conference\Form\ConferenceDeleteForm'
+    _title: 'Delete Conference'
+  requirements:
+    _permission: 'conference delete'
+
+

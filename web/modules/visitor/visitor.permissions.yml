@@ -1,0 +1,24 @@
+visitor read:
+  title: 'Visitor read'
+  description: 'Reading of Visitor'
+  restrict access: false
+
+visitor add:
+  title: 'Visitor add'
+  description: 'Reading of Visitor'
+  restrict access: false
+
+visitor update:
+  title: 'Visitor update'
+  description: 'Update of Visitor'
+  restrict access: true
+
+visitor delete:
+  title: 'Visitor delete'
+  description: 'Delete of Visitor'
+  restrict access: true
+
+send mail:
+  title: 'Visitor delete'
+  description: 'Delete of Visitor'
+  restrict access: true

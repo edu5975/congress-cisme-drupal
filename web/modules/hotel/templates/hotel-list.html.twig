@@ -1,0 +1,88 @@
+
+<div class="container-fluid">
+  {% if hotel_add %}
+<div class="row align-right">
+  <div class="col-md-12">
+  <a href="{{ path('hotelAdd') }}" class="btn btn-primary btn-sm">
+    <span class="glyphicon glyphicon-plus"></span>
+    Agregar</a>
+    </div>
+</div>
+  {% endif %}
+  <hr/>
+
+
+{%  for row in hotel_list %}
+  <div class="row"
+       style="background-color: #ffffff;
+       margin-bottom: 20px;
+       border-radius: 20px;
+       box-shadow: 10px 10px 10px #b5b5b5;
+       border: 1px solid #c4c4c4"
+        >
+    <div class="col-md-9">
+      <h3>
+        {{row.nombre | raw}}
+      </h3>
+      <hr style="width:100%;text-align:left;
+          margin-left:0;
+          border-color:#c4c4c4;
+          border-width: 1px">
+      <div class="row">
+        <div class="col-md-9">
+
+          <address>
+            <strong>Dirección.</strong>
+            <br /> {{row.direccion}}
+            {% if hotel_update %}
+            <br /> Lat. {{row.latitud}}
+            <br /> Long. {{row.longitud}}
+            {% endif %}
+            <br />
+            <abbr title="Telefono">T:</abbr> {{row.telefono}}
+          </address>
+        </div>
+        <div class="col-md-3">
+          <h3 style="color:#026602">
+            ${{row.costoHabitacion}}<br/>
+            <hr style="width:100%;text-align:left;margin-left:0; border-color:#c4c4c4;border-width: 1px">
+            {% if hotel_update and hotel_delete %}
+
+            <div class="row">
+              <div class="col-md-4">
+                <a href="{{ path('hotelUpdate',  {'id':row.id}) }}"><span class="glyphicon glyphicon-pencil" style="color:#b76d00"></span></a>
+              </div>
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <a href="{{ path('hotelDelete', {'id':row.id}) }}"><span class="glyphicon glyphicon-trash" style="color:#ac0000"></span></a>
+              </div>
+            </div>
+            {% endif %}
+
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <iframe
+              style="border-radius: 10px;
+                      margin:10px;
+                      border: 1px solid #c4c4c4;"
+              width="200"
+              height="200"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?q={{ row.latitud }},{{ row.longitud }}&hl=es&z=14&amp;output=embed"
+      >
+      </iframe>
+    </div>
+  </div>
+  <hr style="width:100%;text-align:left;
+          margin-left:0;
+          border-color:#c4c4c4;
+          border-width: 1px">
+{% endfor %}
+</div>

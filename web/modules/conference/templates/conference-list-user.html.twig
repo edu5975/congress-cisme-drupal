@@ -1,0 +1,26 @@
+<h4>Información de conferencias y talleres </h4>
+
+<div class="panel-group" id="accordion">
+  {% for row in conference_list %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{loop.index}}">
+            {{row.titulo}} : {{ row.nombreConferencista }}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse{{loop.index}}" class="panel-collapse collapse">
+        <div class="panel-body">
+          <p>Titulo: {{row.titulo}}</p>
+          <p>Resumen: {{row.resumen}}</p>
+          <p>Fecha: {{row.fecha}}</p>
+          <p>Lugar: {{row.lugar}}</p>
+          <p>Hora: {{row.hora}}</p>
+          <p>Conferencista: {{row.nombreConferencista}}</p>
+          <p>CV del conferencista: {{row.cvConferencista}}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

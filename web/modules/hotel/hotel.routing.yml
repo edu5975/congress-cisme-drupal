@@ -1,0 +1,31 @@
+hotel:
+ path: /hotel/list
+ defaults:
+   _controller: Drupal\hotel\Controller\HotelController::show
+ requirements:
+   _permission: 'hotel read'
+
+hotelUpdate:
+  path: /hotel/update/{id}
+  defaults:
+    _form: '\Drupal\hotel\Form\HotelUpdateForm2'
+    _title: 'Edit Hotel '
+  requirements:
+    _permission: 'hotel update'
+
+hotelDelete:
+  path: /hotel/delete/{id}
+  defaults:
+    _form: '\Drupal\hotel\Form\HotelDeleteForm'
+    _title: 'Delete Hotel'
+  requirements:
+    _permission: 'hotel delete'
+
+hotelAdd:
+  path: /hotel/add
+  defaults:
+    _form: '\Drupal\hotel\Form\HotelAddForm'
+    _title: 'Add Hotel'
+  requirements:
+    _permission: 'hotel add'
+

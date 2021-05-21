@@ -1,0 +1,19 @@
+conference read:
+  title: 'Conferences read'
+  description: 'Reading of Conferences'
+  restrict access: false
+
+conference add:
+  title: 'Conferences add'
+  description: 'Reading of Conferences'
+  restrict access: true
+
+conference update:
+  title: 'Conferences update'
+  description: 'Update of Conferences'
+  restrict access: true
+
+conference delete:
+  title: 'Conferences delete'
+  description: 'Delete of Conferences'
+  restrict access: true

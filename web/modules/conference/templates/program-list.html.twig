@@ -1,0 +1,71 @@
+
+<ul class="nav nav-tabs">
+  {% for row in program_days %}
+    {% if loop.index == 1 %}
+      <li class="active"><a data-toggle="tab" href="#{{ row.fecha }}">{{ row.fecha }}</a></li>
+    {% else %}
+      <li><a data-toggle="tab" href="#{{ row.fecha }}">{{ row.fecha }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<div class="tab-content">
+{% for rowD in program_days %}
+  {% if loop.index == 1 %}
+    <div id="{{ rowD.fecha }}" class="tab-pane fade in active">
+  {% else %}
+    <div id="{{ rowD.fecha }}" class="tab-pane fade">
+  {% endif %}
+  <div class="panel-group" id="accordion">
+    {% for row in program_list %}
+      {% if row.fecha == rowD.fecha %}
+          <hr style="width:100%;text-align:left;
+          margin-left:0;
+          border-color:#c4c4c4;
+          border-width: 1px">
+
+          <div class="panel panel-default"
+               style="margin-bottom: 10px;border: 1px solid #c4c4c4;box-shadow: 5px 5px 10px #b5b5b5;">
+          <div class="panel-heading" style="background-color: #ffffff">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion"
+                 href="#collapse{{loop.index}}" style="outline: none;">
+                  <div class="row">
+                      <div class="col-md-2">
+                          <h3 style="color:darkred">
+                              {{ row.hora }}
+                          </h3>
+                      </div>
+                      <div class="col-md-10" style="padding: 30px 5px;">
+                          <b>{{row.titulo}}</b>
+                      </div>
+                  </div>
+
+              </a>
+            </h4>
+          </div>
+          <div id="collapse{{loop.index}}" class="panel-collapse collapse">
+            <div class="panel-body">
+                <b><p>Titulo: {{row.titulo}}</p></b><br/>
+              <p>Resumen: {{row.resumen}}</p>
+              <p>Fecha: {{row.fecha}}</p>
+              <p>Lugar: {{row.lugar}}</p>
+              <p>Hora: {{row.hora}}</p>
+              <p>Conferencista: {{row.nombreConferencista}}</p>
+              <p>CV del conferencista: {{row.cvConferencista}}</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  </div>
+{% endfor %}
+</div>
+
+
+
+
+
+
+

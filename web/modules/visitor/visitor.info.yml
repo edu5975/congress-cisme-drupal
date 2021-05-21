@@ -1,0 +1,5 @@
+name: Visitor
+type: module
+description: Information of the visitors
+package: Custom
+core_version_requirement: 8.x || 9.x

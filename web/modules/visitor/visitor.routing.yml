@@ -1,0 +1,49 @@
+visitorList:
+  path: /visitor/list
+  defaults:
+    _controller: Drupal\visitor\Controller\VisitorController::listVisitor
+  requirements:
+    _permission: 'access content'
+
+visitorAdd:
+  path: /visitor/add
+  defaults:
+    _form: '\Drupal\visitor\Form\VisitorAddForm'
+    _title: 'Add Visitor'
+  requirements:
+    _permission: 'access content'
+
+visitorUpdate:
+  path: /visitor/update/{id}
+  defaults:
+    _form: '\Drupal\visitor\Form\VisitorUpdateForm'
+    _title: 'Edit Visitor'
+  requirements:
+    _permission: 'visitor update'
+
+visitorDelete:
+  path: /visitor/delete/{id}
+  defaults:
+    _form: '\Drupal\visitor\Form\VisitorDeleteForm'
+    _title: 'Delete Visitor'
+  requirements:
+    _permission: 'visitor delete'
+
+visitorMail:
+  path: /visitor/mail
+  defaults:
+    _form: '\Drupal\visitor\Form\VisitorMail'
+    _title: 'Send email'
+  requirements:
+    _permission: 'send mail'
+
+visitorMailUser:
+  path: /visitor/mail/{id}
+  defaults:
+    _form: '\Drupal\visitor\Form\VisitorMail'
+    _title: 'Send email one user'
+  requirements:
+    _permission: 'send mail'
+
+
+

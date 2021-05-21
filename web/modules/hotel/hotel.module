@@ -1,0 +1,12 @@
+<?php
+
+function hotel_theme($existing,$type,$theme,$path)
+{
+  $path_templates = drupal_get_path('module','hotel')."/templates";
+  return [
+    'hotel-list'=>[
+      'variables'=>['hotel_list'=>null,'hotel_add'=>null,'hotel_update'=>null,'hotel_delete'=>null],
+      'path'=>$path_templates
+    ]
+  ];
+}
